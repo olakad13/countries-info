@@ -1,0 +1,26 @@
+.home {
+    background: inherit;
+}
+
+.cardsCon {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    align-items: stretch;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.formWrapper {
+    height: fit-content;
+}
+
+
+@media screen and (min-width: 740px) {
+    .formWrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+}
+

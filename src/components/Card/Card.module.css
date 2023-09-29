@@ -1,0 +1,38 @@
+.card {
+    width: 250px;
+    border-radius: .3em;
+    margin-bottom: 1rem;
+    
+}
+
+.card img {
+    width: 100%;
+    height: 10em;
+    border-top-left-radius: .3em; 
+    border-top-right-radius: .3em;
+}
+
+.cardBody {
+    padding: 2em;
+    row-gap: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cardBody span {
+    font-weight: 300;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 800;
+}
+
+@media screen and (min-width: 575px) {
+    .card {
+        width: auto;
+        flex-basis: 250px;
+        
+    }
+}

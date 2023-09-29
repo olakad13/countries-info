@@ -1,0 +1,43 @@
+.header > div, .toggle {
+    display: flex;
+    align-items: center;
+    
+}
+
+.header > div{
+    justify-content: space-between;
+    
+}
+
+.toggle {
+    justify-content: center;
+    gap: 0.5em;
+}
+
+button {
+    background: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    outline: none;
+}
+
+.header h1, .header span {
+    font-size: 16px;
+}
+
+.heaer h1 {
+    font-weight: 800;
+}
+
+span {
+    font-weight: 400;
+}
+
+@media screen and (min-width: 740px) {
+    .header h1,.header span {
+        font-size: 20px;
+
+    }
+    
+}

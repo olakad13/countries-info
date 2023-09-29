@@ -1,0 +1,31 @@
+.filter {
+
+    border-radius: .3em;
+}
+
+
+select {
+    text-transform: capitalize;
+    background: inherit;
+    padding: .8em 1em;
+    border: none;
+    outline: none;
+    border-radius: .3em;
+    color: inherit;
+    padding: 1em 2em;
+    height: 100%;
+    width: 200px;
+    font-weight: 600;
+
+}
+
+select:focus {
+    outline: none;
+    border-color: #007bff;
+    min-width: 200px;
+  }
+
+option {
+    width: 100%;
+}
+ 
