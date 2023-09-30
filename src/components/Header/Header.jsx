@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import Context from '../../utilities/Context';
-import darkMode from '../../assets/dark.png'
+
 import lightMode from '../../assets/light.svg'
 import styles from './Header.module.css'
 

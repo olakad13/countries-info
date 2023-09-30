@@ -1,10 +1,10 @@
 import styles from './Filter.module.css'
 import React, { useState, useContext, useEffect } from 'react';
 import Context from '../../utilities/Context';
-// import data from '../../pages/Data/data.json'
+import data from '../../pages/Data/data.json'
 
 export default function Filter() {
-    const [data, setData] = useState([])
+    
     const { isDark, updateCountries} = useContext(Context);
     const [showFirstOption, setShowFirstOption] = useState(true);
 
@@ -26,17 +26,6 @@ export default function Filter() {
     
     },[isDark])
 
-    useEffect(() => {
-        // Fetch data from data.json using fetch API
-        fetch('src/pages/Data/data.json')
-            .then(response => response.json()) 
-            .then(jsonData => {
-                setData(jsonData); 
-            })
-            .catch(error => {
-            console.error('Error fetching data:', error);
-            });
-    }, []); 
 
     return (
         <>

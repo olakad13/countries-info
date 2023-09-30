@@ -3,10 +3,11 @@ import React, { useState,useContext, useEffect } from 'react';
 import Context from '../../utilities/Context';
 import DarkSearchIcon from '../../assets/dark-search.svg'
 import LightSearchIcon from '../../assets/light-search.svg'
+import data from '../../pages/Data/data.json'
 
 
 export default function Search() {
-    const [data, setData] = useState([])
+    
     const { isDark, updateCountries } = useContext(Context);
     
 
@@ -14,17 +15,7 @@ export default function Search() {
         document.getElementById('search').style.backgroundColor = isDark ? "hsl(209, 23%, 22%)" : "hsl(0, 0%, 100%)";
       },[isDark])
     
-    useEffect(() => {
-    // Fetch data from data.json using fetch API
-        fetch('src/pages/Data/data.json')
-            .then(response => response.json()) 
-            .then(jsonData => {
-                setData(jsonData); 
-            })
-            .catch(error => {
-            console.error('Error fetching data:', error);
-            });
-    }, []); 
+    
     
     const handleChange = (event) => {
         const searchString = event.target.value.toLowerCase()
