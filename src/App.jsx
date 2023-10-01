@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Home from './pages/Home.jsx'
 import './App.css'
 import countriesData from './pages/Data/data.json'
@@ -11,6 +11,7 @@ function App() {
   
   const [isDark, setIsDark] = useState(true)
   const [countries , setCountries] = useState(countriesData)
+  const unchangedData = useRef(countriesData)
 
   
 
@@ -27,7 +28,7 @@ function App() {
 
   return (
     <>
-      <Context.Provider value={{ isDark, updateIsDark, countries, updateCountries }}>
+      <Context.Provider value={{ isDark, updateIsDark, countries, updateCountries, unchangedData }}>
         <Header />
         <Routes>
           <Route path="/" element={<Home />}/>

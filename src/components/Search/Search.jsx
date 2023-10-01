@@ -9,8 +9,9 @@ import LightSearchIcon from '../../assets/light-search.svg'
 export default function Search() {
 
     
-    const { isDark,countries, updateCountries } = useContext(Context);
-    const data = useRef(countries)
+    const { isDark,countries, updateCountries, unchangedData } = useContext(Context);
+    
+    
     
 
     useEffect(() => {
@@ -22,7 +23,7 @@ export default function Search() {
     const handleChange = (event) => {
         const searchString = event.target.value.toLowerCase()
         
-        const searchMatch = data.current.filter((item) => {
+        const searchMatch =  unchangedData.current.filter((item) => {
             return item.name.toLowerCase().includes(searchString)
         })
 

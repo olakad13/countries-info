@@ -1,19 +1,19 @@
 import styles from './Filter.module.css'
 import React, { useState, useContext, useEffect, useRef } from 'react';
 import Context from '../../utilities/Context';
-
+import data from '../../pages/Data/data.json'
 
 export default function Filter() {
     
-    const { isDark, countries, updateCountries} = useContext(Context);
+    const { isDark, updateCountries,  unchangedData} = useContext(Context);
     const [showFirstOption, setShowFirstOption] = useState(true);
 
-    const data = useRef(countries)
+    // const data = useRef(countries)
 
     const handleChange = (event) => {
         
         const filterValue = event.target.value.toLowerCase()
-        const filteredCountries = data.current.filter((item) => {
+        const filteredCountries =  unchangedData.current.filter((item) => {
             return item.region.toLowerCase() === filterValue
         })
         updateCountries(filteredCountries)
