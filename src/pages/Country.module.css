@@ -63,5 +63,6 @@ span {
     }
     .subInfoCon {
         flex-wrap: wrap;
+        gap: 1em;
     }
 }
