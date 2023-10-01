@@ -1,14 +1,16 @@
 import styles from './Search.module.css'
-import React, { useState,useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import Context from '../../utilities/Context';
 import DarkSearchIcon from '../../assets/dark-search.svg'
 import LightSearchIcon from '../../assets/light-search.svg'
-import data from '../../pages/Data/data.json'
+
 
 
 export default function Search() {
+
     
-    const { isDark, updateCountries } = useContext(Context);
+    const { isDark,countries, updateCountries } = useContext(Context);
+    const data = useRef(countries)
     
 
     useEffect(() => {
@@ -20,7 +22,7 @@ export default function Search() {
     const handleChange = (event) => {
         const searchString = event.target.value.toLowerCase()
         
-        const searchMatch = data.filter((item) => {
+        const searchMatch = data.current.filter((item) => {
             return item.name.toLowerCase().includes(searchString)
         })
 

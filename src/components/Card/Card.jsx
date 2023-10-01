@@ -1,16 +1,44 @@
 import styles from './Card.module.css'
 import React, { useContext, useEffect } from 'react';
 import Context from '../../utilities/Context';
+import {Link} from "react-router-dom"
 
-export default function Card({image, name, population, region, capital}) {
+export default function Card(props) {
     
     const { isDark} = useContext(Context);
+    const {
+        image,
+        name,
+        population,
+        region,
+        capital,
+        subregion,
+        nativeName,
+        topLevelDomain,
+        currencies,
+        languages,
+        borders
+      } = props;
 
     return (
         <>
-            <div 
+            <Link
+                to="/country"
                 style={{backgroundColor: isDark ? "hsl(209, 23%, 22%)" : "hsl(0, 0%, 100%)"}}  
                 className={`${styles.card} ${isDark ? 'dark-shadow' : 'light-shadow'}`}
+                state={{
+                    image: image,
+                    name: name,
+                    population: population,
+                    region: region,
+                    capital: capital,
+                    subregion: subregion,
+                    nativeName: nativeName,
+                    topLevelDomain: topLevelDomain,
+                    currencies: currencies,
+                    languages: languages,
+                    borders: borders
+                }}
             >
                 <img src={image} alt="" />
                 <div className={styles.cardBody}>
@@ -21,7 +49,7 @@ export default function Card({image, name, population, region, capital}) {
                         <p>Capital: <span>{capital}</span></p>
                     </div>
                 </div>
-            </div>
+            </Link>
         </>
     )
 }

@@ -2,7 +2,8 @@
     width: 250px;
     border-radius: .3em;
     margin-bottom: 1rem;
-    
+    text-decoration: none;
+    color: inherit;
 }
 
 .card img {

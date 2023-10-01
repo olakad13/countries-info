@@ -3,6 +3,9 @@ import Home from './pages/Home.jsx'
 import './App.css'
 import countriesData from './pages/Data/data.json'
 import Context from './utilities/Context.jsx'
+import Header from './components/Header/Header.jsx'
+import Country from './pages/Country.jsx'
+import {Routes,Route, Link} from "react-router-dom"
 
 function App() {
   
@@ -25,7 +28,11 @@ function App() {
   return (
     <>
       <Context.Provider value={{ isDark, updateIsDark, countries, updateCountries }}>
-        <Home />
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/country" element={<Country />}/>
+        </Routes>
       </Context.Provider>
     </>
   )

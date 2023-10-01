@@ -1,0 +1,50 @@
+.mainContent {
+    display: flex;
+    gap: 10%;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.imgContainer, .infoContainer {
+    flex-basis: 40%;
+    min-width: 400px;
+}
+
+.imgContainer {
+    height: 20rem;
+}
+
+
+.imgContainer  img{
+    height: 100%;
+    width: 100%;
+}
+span {
+    font-weight: 800;
+    font-size: 16px;
+}
+
+.subInfoCon {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4em;
+    
+    align-items: baseline;
+}
+
+.subInfoCon  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .7em;
+}
+
+.mainContent h2 {
+    margin-bottom: 1em;
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+.mainContent p {
+    font-weight: 300;
+}

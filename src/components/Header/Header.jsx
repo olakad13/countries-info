@@ -1,7 +1,8 @@
 import React, { useContext, useEffect } from 'react';
 import Context from '../../utilities/Context';
 
-import lightMode from '../../assets/light.svg'
+import lightIcon from '../../assets/light.svg'
+import darkIcon from '../../assets/dark.svg'
 import styles from './Header.module.css'
 
 export default function Header() {
@@ -23,7 +24,7 @@ export default function Header() {
                     <h1>Where in the world?</h1>
                     <div className={styles.toggle}>
                         <button onClick={toggleTheme}>
-                            <img src={lightMode} alt="" />
+                            <img src={isDark? lightIcon: darkIcon} alt="" />
                         </button>
                         <span>Dark Mode</span>
                     </div>
