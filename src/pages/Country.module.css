@@ -48,3 +48,20 @@ span {
 .mainContent p {
     font-weight: 300;
 }
+
+@media screen and (max-width: 973px){
+    .mainContent {
+        flex-direction: column;
+        gap: 3rem;
+        
+    }
+}
+
+@media screen and (max-width: 445px){
+    .imgContainer, .infoContainer {
+        min-width: auto;
+    }
+    .subInfoCon {
+        flex-wrap: wrap;
+    }
+}
