@@ -23,22 +23,23 @@ export default function Card(props) {
     return (
         <>
             <Link
-                to="/country"
+                to={`/countries/${name}`}
                 style={{backgroundColor: isDark ? "hsl(209, 23%, 22%)" : "hsl(0, 0%, 100%)"}}  
                 className={`${styles.card} ${isDark ? 'dark-shadow' : 'light-shadow'}`}
-                state={{
-                    image: image,
-                    name: name,
-                    population: population,
-                    region: region,
-                    capital: capital,
-                    subregion: subregion,
-                    nativeName: nativeName,
-                    topLevelDomain: topLevelDomain,
-                    currencies: currencies,
-                    languages: languages,
-                    borders: borders
-                }}
+                // state={{
+                //     image: image,
+                //     name: name,
+                //     population: population,
+                //     region: region,
+                //     capital: capital,
+                //     subregion: subregion,
+                //     nativeName: nativeName,
+                //     topLevelDomain: topLevelDomain,
+                //     currencies: currencies,
+                //     languages: languages,
+                //     borders: borders
+                // }}
+                state={{id: name}}
             >
                 <img src={image} alt="" />
                 <div className={styles.cardBody}>

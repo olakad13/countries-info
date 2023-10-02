@@ -12,6 +12,7 @@
 
 .imgContainer {
     height: 20rem;
+    
 }
 
 
@@ -24,11 +25,12 @@ span {
     font-size: 16px;
 }
 
+
 .subInfoCon {
     display: flex;
     justify-content: space-between;
     margin-bottom: 4em;
-    
+    gap: 2em;
     align-items: baseline;
 }
 
@@ -49,11 +51,28 @@ span {
     font-weight: 300;
 }
 
+a {
+    padding: .5em 1em;
+    font-weight: 300;
+}
+
+.borderCon {
+    display: flex;
+    align-items: center;
+    /* background-color: red; */
+    gap: 1em;
+    flex-wrap: wrap;
+
+}
+
 @media screen and (max-width: 973px){
     .mainContent {
         flex-direction: column;
         gap: 3rem;
-        
+    }
+
+    .imgContainer, .infoContainer {
+        min-width: 100%;
     }
 }
 

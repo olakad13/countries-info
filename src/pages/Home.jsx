@@ -4,10 +4,6 @@ import Search from '../components/Search/Search.jsx'
 import Filter from '../components/Filter/Filter.jsx'
 import styles from './Home.module.css'
 import { useState, useContext } from 'react'
-
-
-
-
 import { v4 as uuidv4 } from 'uuid';
 import Context from '../utilities/Context.jsx';
 

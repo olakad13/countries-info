@@ -5,7 +5,8 @@ import countriesData from './pages/Data/data.json'
 import Context from './utilities/Context.jsx'
 import Header from './components/Header/Header.jsx'
 import Country from './pages/Country.jsx'
-import {Routes,Route, Link} from "react-router-dom"
+import {Routes,Route} from "react-router-dom"
+import NotFoundPage from './pages/ErrorPage.jsx'
 
 function App() {
   
@@ -32,7 +33,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />}/>
-          <Route path="/country" element={<Country />}/>
+          <Route path="/countries/:name" element={<Country />}/>
+          <Route path="*" element={<NotFoundPage />}/>
         </Routes>
       </Context.Provider>
     </>

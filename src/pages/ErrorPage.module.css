@@ -1,0 +1,13 @@
+.errorPage {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+a {
+    font-weight: 600;
+}
