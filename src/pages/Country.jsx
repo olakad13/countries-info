@@ -19,7 +19,7 @@ export default function Home() {
     
     data = data[0]
     
-    const borders = data.borders ? 
+    const borders = (data.borders ? 
         data.borders.map((border) => {
             const country = unchangedData.current.filter((country) => {
                 return border.toLowerCase() === country.alpha3Code.toLowerCase()
@@ -28,7 +28,7 @@ export default function Home() {
         })
         : 
         []
-    ;
+    );
 
     const bordersJsx = borders.map(name => {
         
