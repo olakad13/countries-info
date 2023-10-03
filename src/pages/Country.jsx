@@ -4,13 +4,11 @@ import Button from '../components/Button/Button.jsx';
 import { useLocation, useParams } from 'react-router-dom';
 import styles from './Country.module.css'
 import { v4 as uuidv4 } from 'uuid';
-import {Link, Navigate, useNavigate,} from "react-router-dom"
+import {Link} from "react-router-dom"
 
 
 export default function Home() {
 
-    
-    const { state } = useLocation();
     const { name } = useParams();
     const { isDark, countries, unchangedData } = useContext(Context);
     const navigate = useNavigate();
