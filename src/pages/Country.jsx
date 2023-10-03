@@ -29,7 +29,12 @@ export default function Home() {
     const bordersJsx = borders.map(name => {
         
         return (
-            <Link to={`/countries/${name}`} key={uuidv4()} className={isDark ? 'dark-shadow' : 'light-shadow'}>
+            <Link 
+                style={{backgroundColor: isDark ? "hsl(209, 23%, 22%)" : "hsl(0, 0%, 100%)"}}
+                to={`/countries/${name}`} 
+                key={uuidv4()} 
+                className={`${styles.links} ${isDark ? 'dark-shadow' : 'light-shadow'}`}
+            >
                 {name}
             </Link>
         )
