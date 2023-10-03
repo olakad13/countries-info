@@ -4,20 +4,42 @@ import Button from '../components/Button/Button.jsx';
 import { useLocation, useParams } from 'react-router-dom';
 import styles from './Country.module.css'
 import { v4 as uuidv4 } from 'uuid';
-import {Link, Navigate} from "react-router-dom"
+import {Link, Navigate, useNavigate,} from "react-router-dom"
 
 
 export default function Home() {
 
+    
     const { state } = useLocation();
     const { name } = useParams();
     const { isDark, countries, unchangedData } = useContext(Context);
-
-    let data = unchangedData.current.filter((country) => {
-        return name === country.name
-    })
+    const navigate = useNavigate();
     
-    data = data[0]
+  
+
+    // let data = unchangedData.current.filter((country) => {
+    //     return name === country.name
+    // })
+
+    useEffect(() => {
+        const fetchData = async () => {
+          const countryData = unchangedData.current.filter((country) => country.name === name);
+          if (countryData.length > 0) {
+            setData(countryData[0]);
+          } else {
+            // Handle case when country data is not found
+            navigate('/');
+          }
+        };
+    
+        fetchData();
+      }, []);
+
+
+    data = data[0];
+ 
+    
+
     
     const borders = (data.borders ? 
         data.borders.map((border) => {
