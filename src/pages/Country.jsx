@@ -4,7 +4,7 @@ import Button from '../components/Button/Button.jsx';
 import { useLocation, useParams } from 'react-router-dom';
 import styles from './Country.module.css'
 import { v4 as uuidv4 } from 'uuid';
-import {Link} from "react-router-dom"
+import {Link, Navigate} from "react-router-dom"
 
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
     let data = unchangedData.current.filter((country) => {
         return name === country.name
     })
-
+    
     data = data[0]
     
     const borders = data.borders.map((border) => {
