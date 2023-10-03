@@ -11,7 +11,7 @@ export default function Home() {
 
     const { name } = useParams();
     const { isDark, countries, unchangedData } = useContext(Context);
-    const navigate = useNavigate();
+    
     
   
 
