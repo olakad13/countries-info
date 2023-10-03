@@ -19,12 +19,16 @@ export default function Home() {
     
     data = data[0]
     
-    const borders = data.borders.map((border) => {
-        const country = unchangedData.current.filter((country) => {
-            return border.toLowerCase() === country.alpha3Code.toLowerCase()
+    const borders = data.borders ? 
+        data.borders.map((border) => {
+            const country = unchangedData.current.filter((country) => {
+                return border.toLowerCase() === country.alpha3Code.toLowerCase()
+            })
+            return country[0].name
         })
-        return country[0].name
-    })
+        : 
+        []
+    ;
 
     const bordersJsx = borders.map(name => {
         
