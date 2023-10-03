@@ -17,25 +17,11 @@ export default function Home() {
     
   
 
-    // let data = unchangedData.current.filter((country) => {
-    //     return name === country.name
-    // })
+    let data = unchangedData.current.filter((country) => {
+        return name === country.name
+    })
 
-    useEffect(() => {
-        const fetchData = async () => {
-          const countryData = unchangedData.current.filter((country) => country.name === name);
-          if (countryData.length > 0) {
-            setData(countryData[0]);
-          } else {
-            // Handle case when country data is not found
-            navigate('/');
-          }
-        };
     
-        fetchData();
-      }, []);
-
-
     data = data[0];
  
     
