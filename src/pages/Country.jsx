@@ -19,6 +19,10 @@ export default function Home() {
         return name === country.name
     })
 
+    if (data.length === 0) {
+        throw new Error("There was an error")
+    }
+
     
     data = data[0];
  
