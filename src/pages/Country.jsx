@@ -12,72 +12,82 @@ export default function Home() {
     const { name } = useParams();
     const { isDark, countries, unchangedData } = useContext(Context);
     
-    
+    let render = false
   
 
     let data = unchangedData.current.filter((country) => {
         return name === country.name
     })
 
-    if (data.length === 0) {
-        throw new Error("There was an error")
-    }
+    let currencies;
+    let languages;
+    let bordersJsx;
 
+   
     
     data = data[0];
  
     
-
-    
-    const borders = (data.borders ? 
-        data.borders.map((border) => {
-            const country = unchangedData.current.filter((country) => {
-                return border.toLowerCase() === country.alpha3Code.toLowerCase()
+    if (data) {
+        render = true
+        const borders = (data.borders ? 
+            data.borders.map((border) => {
+                const country = unchangedData.current.filter((country) => {
+                    return border.toLowerCase() === country.alpha3Code.toLowerCase()
+                })
+                return country[0].name
             })
-            return country[0].name
+            : 
+            []
+        );
+    
+        bordersJsx = borders.map(name => {
+            
+            return (
+                <Link 
+                    style={{backgroundColor: isDark ? "hsl(209, 23%, 22%)" : "hsl(0, 0%, 100%)"}}
+                    to={`/countries/${name}`} 
+                    key={uuidv4()} 
+                    className={`${styles.links} ${isDark ? 'dark-shadow' : 'light-shadow'}`}
+                >
+                    {name}
+                </Link>
+            )
         })
-        : 
-        []
-    );
-
-    const bordersJsx = borders.map(name => {
         
-        return (
-            <Link 
-                style={{backgroundColor: isDark ? "hsl(209, 23%, 22%)" : "hsl(0, 0%, 100%)"}}
-                to={`/countries/${name}`} 
-                key={uuidv4()} 
-                className={`${styles.links} ${isDark ? 'dark-shadow' : 'light-shadow'}`}
-            >
-                {name}
-            </Link>
-        )
-    })
+        
+        currencies = data.currencies.reduce((accumulator, currentValue, currentIndex) => {
+            if (currentIndex === 0) {
+              // If it's the first element, don't add a comma before it
+              return currentValue.name;
+            } else {
+              // For subsequent elements, add a comma before them
+              return accumulator + ", " + currentValue.name;
+            }
+          }, '');
     
-    
-    const currencies = data.currencies.reduce((accumulator, currentValue, currentIndex) => {
-        if (currentIndex === 0) {
-          // If it's the first element, don't add a comma before it
-          return currentValue.name;
-        } else {
-          // For subsequent elements, add a comma before them
-          return accumulator + ", " + currentValue.name;
-        }
-      }, '');
+        languages = data.languages.reduce((accumulator, currentValue, currentIndex) => {
+            if (currentIndex === 0) {
+                // If it's the first element, don't add a comma before it
+                return currentValue.name;
+            } else {
+                // For subsequent elements, add a comma before them
+                return accumulator + ", " + currentValue.name;
+            }
+        }, '');
 
-    const languages = data.languages.reduce((accumulator, currentValue, currentIndex) => {
-        if (currentIndex === 0) {
-            // If it's the first element, don't add a comma before it
-            return currentValue.name;
-        } else {
-            // For subsequent elements, add a comma before them
-            return accumulator + ", " + currentValue.name;
-        }
-    }, '');
+    } else {
+        render = false
+    }
+    
+
     
     return (
         <>
-            <div className="wrapper">
+            {
+                render ?
+
+                <div className="wrapper">
                 <Button />
                 <div className={styles.mainContent}>
                     <div className={styles.imgContainer}>
@@ -108,7 +118,21 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
+            </div> :
+
+            <div className={styles.countryError}>
+                <h1>Country Not Found</h1>
+                <p>Sorry, the country you requested could not be found.</p>
+                <Link 
+                    to="/" 
+                    className={` ${isDark ? "dark-shadow" : "light-shadow"}`}
+                    style={{backgroundColor: isDark ? "hsl(209, 23%, 22%)" : "hsl(0, 0%, 100%)", color: isDark ? "hsl(0, 0%, 100%)" : "hsl(200, 15%, 8%)"}}
+                >
+                    Return to Countries
+                </Link>
             </div>
+
+            }
         </>
     )
 }

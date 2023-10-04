@@ -5,6 +5,7 @@ import countriesData from './pages/Data/data.json'
 import Context from './utilities/Context.jsx'
 import Header from './components/Header/Header.jsx'
 import Country from './pages/Country.jsx'
+import ErrorPage from './pages/ErrorPage.jsx'
 import {Routes,Route, Navigate} from "react-router-dom"
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/countries/:name" element={<Country />}/>
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Context.Provider>
     </>

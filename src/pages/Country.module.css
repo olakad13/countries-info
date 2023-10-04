@@ -65,6 +65,20 @@ span {
 
 }
 
+.countryError {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    gap: 2em;
+}
+
+.countryError a {
+    padding: 1em 1.5em;
+    font-size: 18px;
+}
+
 @media screen and (max-width: 973px){
     .mainContent {
         flex-direction: column;
